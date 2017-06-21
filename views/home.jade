@@ -1,4 +1,15 @@
 extends layout
 
 block content
-	p hi #{name}
+	h1 
+		center #{train.name}
+	h1 Train number is : #{train.number}
+	h1 Runs on 
+
+
+	for x in train.days
+		ol 
+			for y in x 
+				li #{y}
+	
+	

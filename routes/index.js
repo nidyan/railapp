@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 router.get('/home' , function(req,response,next){
    
     var url = "http://api.railwayapi.com/name_number/train/bhopal/apikey/yqo4vcq8/";
-
+    	var data = "";
 	     http.get(url, function(res){
 	         var body = '';
 
@@ -22,37 +22,18 @@ router.get('/home' , function(req,response,next){
 	         });
 
 	         res.on('end', function(){
-	             var data = JSON.parse(body);
-	             console.log("Got a response: ",  data);
+	              data = JSON.parse(body);
+	             console.log("Got a response: ",  data.train);
 	             response.render('home',data);
 	         });
 
 	         
 	     }).on('error', function(e){
-	           console.log("Got an error: ", e);
+	           console.log("Got an error: ");
 	     });
 
-	     // http.get(url, function (res) {
-	     //     var json = '';
-	     //     res.on('data', function (chunk) {
-	     //         json += chunk;
-	     //     });
-	     //     res.on('end', function () {
-	     //         if (res.statusCode === 200) {
-	     //             try {
-	     //                 var data = JSON.parse(json);
-	     //                 // data is available here:
-	     //                 console.log(data);
-	     //             } catch (e) {
-	     //                 console.log('Error parsing JSON!');
-	     //             }
-	     //         } else {
-	     //             console.log('Status:', res.statusCode);
-	     //         }
-	     //     });
-	     // }).on('error', function (err) {
-	     //       console.log('Error:', err);
-	     // });
- response.render('home',{name:'Aryan'});
+	    
+ console.log(data.train);
+ 
 });
 module.exports = router;
