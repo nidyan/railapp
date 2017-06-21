@@ -1,6 +1,23 @@
 extends layout
 
+
 block content
+
+	script(type='text/javascript').
+		var find_train = function(){ console.log('i am working' , num) ; 
+
+		var num  = document.getElementById("trno").value;
+		
+		document.getElementById("demo").innerHTML ="Train Number is : " + num ;}
+
+	h1
+		center 	
+			p Enter your Train Number 
+			input#trno(type="text" ,value="1234" placeholder = "train number name ")
+			button(type="button" onClick = "find_train()") Click Me
+
+	p#demo
+
 	h1 
 		center #{train.name}
 	h1 Train number is : #{train.number}
